@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jev Growth Studio</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+    <div>
+        <p class="eyebrow">SYSTEM ONE × GENERATIVE AI</p>
+        <h1>Jev Growth Studio</h1>
+        <p class="lede">让 Jev 做决策，让 Spring AI 写内容。把 ASO / SEO 从“一次生成”变成可复核、可实验、可回传的增长闭环。</p>
+    </div>
+    <div id="system-status" class="status">正在检测运行模式…</div>
+</header>
+
+<main>
+    <section class="panel form-panel">
+        <div class="section-title">
+            <span>01</span>
+            <div><h2>优化简报</h2><p>输入真实数据，Jev 的判断会更可靠。</p></div>
+        </div>
+        <form id="optimize-form">
+            <div class="grid two">
+                <label>渠道<select name="channel"><option>SEO</option><option>ASO</option></select></label>
+                <label>产品名称<input name="productName" value="FlowNote" required maxlength="120"></label>
+                <label>市场<input name="market" value="中国大陆" required></label>
+                <label>语言<input name="language" value="zh-CN" required></label>
+            </div>
+            <label>目标受众<textarea name="audience" required>需要快速整理会议纪要的产品与销售团队</textarea></label>
+            <label>增长目标<textarea name="goal" required>提升来自自然搜索的试用注册转化</textarea></label>
+            <label>当前内容（可选）<textarea name="currentContent" placeholder="粘贴当前页面或商店描述"></textarea></label>
+            <label>候选关键词 <small>每行：关键词, 月搜索量, 难度, 当前排名</small>
+                <textarea name="keywords" required>AI会议纪要,12000,42,18
+会议纪要工具,8000,35,26
+自动生成会议纪要,5000,31,</textarea>
+            </label>
+            <label>品牌规则 <small>每行一条</small><textarea name="brandRules">不得承诺百分之百准确
+不得虚构客户、奖项或统计数据
+语气专业、克制、具体</textarea></label>
+            <button type="submit">运行 Jev 决策与内容优化 <span>→</span></button>
+        </form>
+    </section>
+
+    <section id="empty-state" class="panel empty">
+        <div class="orb"></div>
+        <h2>一次请求，两个智能层</h2>
+        <p>Jev 同时完成策略路由、意图分类、机会评分、品牌安全和人工复核判断；Spring AI 只基于通过筛选的信号生成内容。</p>
+    </section>
+
+    <section id="result" class="result hidden" aria-live="polite">
+        <div class="panel decision-card">
+            <div class="section-title"><span>02</span><div><h2>Jev 决策</h2><p id="result-status"></p></div></div>
+            <div class="metrics">
+                <div><strong id="opportunity">–</strong><small>机会分</small></div>
+                <div><strong id="readiness">–</strong><small>就绪度</small></div>
+                <div><strong id="confidence">–</strong><small>置信度</small></div>
+                <div><strong id="brand-safe">–</strong><small>品牌安全</small></div>
+            </div>
+            <div id="keyword-list" class="keywords"></div>
+        </div>
+        <div class="panel content-card">
+            <div class="section-title"><span>03</span><div><h2>优化结果</h2><p id="strategy"></p></div></div>
+            <h3 id="content-title"></h3>
+            <p id="meta" class="meta"></p>
+            <div id="descriptions"></div>
+            <h4>结构建议</h4><ol id="outline"></ol>
+        </div>
+        <div class="panel experiment-card">
+            <div class="section-title"><span>04</span><div><h2>实验与门禁</h2><p>发布前先验证模型判断。</p></div></div>
+            <div id="content-review" class="review-strip"></div>
+            <div id="recommendations"></div>
+            <p id="experiment"></p>
+        </div>
+    </section>
+</main>
+
+<footer>JDK 17 · Spring Boot · Spring AI · Jev typed decisions</footer>
+<script src="/app.js"></script>
+</body>
+</html>

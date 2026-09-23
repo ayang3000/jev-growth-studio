@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+  sql:
+    init:
+      mode: always
+  ai:
+    chat:
+      client:
+        enabled: false
+    model:
+      chat: none
+      embedding: none
+      image: none
+      moderation: none
+      audio:
+        speech: none
+        transcription: none
+
+growth-ai:
+  jev:
+    enabled: false
+    url: http://localhost/unused
+    api-key: ""
+    model: typesafe-ai/jev
+    confidence-threshold: 0.68
+    timeout-seconds: 1
+  generator:
+    enabled: false

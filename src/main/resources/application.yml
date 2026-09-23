@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: jev-growth-studio
+  datasource:
+    url: jdbc:h2:file:./data/jev-growth;AUTO_SERVER=TRUE
+    username: sa
+    password:
+  sql:
+    init:
+      mode: always
+  ai:
+    chat:
+      client:
+        enabled: ${AI_ENABLED:false}
+    model:
+      chat: ${SPRING_AI_CHAT_MODEL:none}
+      embedding: none
+      image: none
+      moderation: none
+      audio:
+        speech: none
+        transcription: none
+    openai:
+      api-key: ${OPENAI_API_KEY:}
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com}
+      chat:
+        model: ${OPENAI_MODEL:gpt-5-mini}
+
+growth-ai:
+  jev:
+    enabled: ${JEV_ENABLED:false}
+    url: ${JEV_URL:https://www.jevai.org/api/v1/decisions}
+    api-key: ${JEV_API_KEY:}
+    model: ${JEV_MODEL:typesafe-ai/jev}
+    confidence-threshold: ${JEV_CONFIDENCE_THRESHOLD:0.68}
+    timeout-seconds: 20
+  generator:
+    enabled: ${AI_ENABLED:false}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+server:
+  error:
+    include-message: always

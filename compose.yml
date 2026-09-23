@@ -1,0 +1,17 @@
+services:
+  growth-studio:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      JEV_ENABLED: ${JEV_ENABLED:-false}
+      JEV_API_KEY: ${JEV_API_KEY:-}
+      AI_ENABLED: ${AI_ENABLED:-false}
+      SPRING_AI_CHAT_MODEL: ${SPRING_AI_CHAT_MODEL:-none}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-5-mini}
+    volumes:
+      - growth-data:/app/data
+
+volumes:
+  growth-data:
