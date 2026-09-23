@@ -44,6 +44,15 @@
 
 打开 [http://localhost:8080](http://localhost:8080)。默认使用本地启发式决策和模板生成器，便于零密钥验收；所有结果会被标记为 `REVIEW_REQUIRED`，不会伪装成 Jev 或大模型结果。
 
+也可以统一用启动脚本。复制示例配置到 Git 忽略的 `.env`，按需把 `JEV_ENABLED` 和 `AI_ENABLED` 改为 `true` 并填写对应的真实 API Key，然后运行：
+
+```bash
+cp .env.example .env
+./start.sh
+```
+
+脚本会从 `.env` 加载配置并启动一次应用；也可以不创建 `.env`，直接通过环境变量配置。不要把真实密钥写入 `start.sh` 或提交到 Git。
+
 运行测试：
 
 ```bash
