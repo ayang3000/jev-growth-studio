@@ -80,14 +80,34 @@ export JEV_MODEL="jev-latest"
 
 ## 启用 Spring AI
 
-当前生成器使用 Spring AI 的 `ChatClient` 和结构化输出 Schema 校验。默认 OpenAI，也支持 OpenAI-compatible 服务：
+当前生成器使用 Spring AI 的 `ChatClient` 和结构化输出 Schema 校验。默认 OpenAI，也支持 OpenAI-compatible 服务。使用 `start.sh` 时，在 `.env` 中设置：
+
+```bash
+AI_ENABLED=true
+AI_API_KEY="your-key"
+AI_BASE_URL=https://api.openai.com
+AI_MODEL=gpt-5-mini
+```
+
+例如使用 DeepSeek：
+
+```bash
+AI_ENABLED=true
+AI_API_KEY="your-deepseek-key"
+AI_BASE_URL=https://api.deepseek.com
+AI_MODEL=deepseek-flash
+```
+
+`SPRING_AI_CHAT_MODEL` 仍保持 `openai`，表示使用 Spring AI 的 OpenAI 兼容协议适配器，并不限定 API 提供方。旧的 `OPENAI_API_KEY`、`OPENAI_BASE_URL`、`OPENAI_MODEL` 环境变量仍可使用。
+
+也可以直接通过环境变量启动：
 
 ```bash
 export AI_ENABLED=true
 export SPRING_AI_CHAT_MODEL=openai
-export OPENAI_API_KEY="your-key"
-export OPENAI_MODEL="gpt-5-mini"
-# 可选：export OPENAI_BASE_URL="https://your-compatible-api.example"
+export AI_API_KEY="your-key"
+export AI_BASE_URL="https://api.openai.com"
+export AI_MODEL="gpt-5-mini"
 ./gradlew bootRun
 ```
 

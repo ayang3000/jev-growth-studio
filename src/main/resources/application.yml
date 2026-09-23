@@ -21,10 +21,10 @@ spring:
         speech: none
         transcription: none
     openai:
-      api-key: ${OPENAI_API_KEY:}
-      base-url: ${OPENAI_BASE_URL:https://api.openai.com}
+      api-key: ${AI_API_KEY:${OPENAI_API_KEY:}}
+      base-url: ${AI_BASE_URL:${OPENAI_BASE_URL:https://api.openai.com}}
       chat:
-        model: ${OPENAI_MODEL:gpt-5-mini}
+        model: ${AI_MODEL:${OPENAI_MODEL:gpt-5-mini}}
 
 growth-ai:
   jev:
